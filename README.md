@@ -46,3 +46,9 @@ This repo is intended as a small portfolio-ready code sample rather than a hoste
 - Uses only dummy example data
 - Contains no credentials or external service dependencies
 - Ignores generated reports and local environment files
+
+## March 2026 Refresh
+
+- Public-safe packaging reviewed
+- Test suite re-run successfully
+- Repository metadata and documentation polished
