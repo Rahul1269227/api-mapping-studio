@@ -1,13 +1,13 @@
-# Dummy API Mapping Studio
+# API Mapping Studio
 
-Safe sample project for comparing two OpenAPI specs and generating field-level mapping suggestions without any organization-specific data.
+Small public-safe Python project for comparing two OpenAPI specs and generating field-level mapping suggestions.
 
-## What It Does
+## Features
 
-- Loads two OpenAPI files
-- Extracts request and response schema fields
-- Suggests likely field mappings using name similarity and shared context
-- Outputs a JSON report
+- Parses source and target OpenAPI files
+- Extracts nested request and response fields
+- Suggests likely mappings using field-name similarity, type alignment, and shared path context
+- Produces a JSON report that can be inspected or stored
 
 ## Quick Start
 
@@ -17,11 +17,24 @@ source .venv/bin/activate
 pip install -r requirements.txt
 PYTHONPATH=src python -m mapping_workbench.cli \
   --source examples/source_api.yaml \
-  --target examples/target_api.yaml
+  --target examples/target_api.yaml \
+  --output reports/mapping_report.json
 ```
 
-## Notes
+## Run Tests
 
-- Only dummy sample APIs are included
-- No credentials are required
-- Generated reports are ignored by git
+```bash
+PYTHONPATH=src python3 -m pytest -q
+```
+
+## Project Layout
+
+- `src/mapping_workbench`: mapping logic and CLI
+- `examples/`: neutral sample OpenAPI documents
+- `tests/`: unit tests for mapping behavior
+
+## Safety
+
+- Uses only dummy example data
+- Contains no credentials or external service dependencies
+- Ignores generated reports and local environment files
