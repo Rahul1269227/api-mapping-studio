@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Sample Client API
+  version: 1.0.0
+paths:
+  /clients:
+    post:
+      operationId: registerClient
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientCreateRequest"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClientResponse"
+components:
+  schemas:
+    ClientCreateRequest:
+      type: object
+      required: [givenName, familyName, emailAddress]
+      properties:
+        givenName:
+          type: string
+        familyName:
+          type: string
+        emailAddress:
+          type: string
+        mobileNumber:
+          type: string
+        mailingAddress:
+          $ref: "#/components/schemas/MailingAddress"
+    ClientResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        lifecycleStatus:
+          type: string
+        profile:
+          $ref: "#/components/schemas/Profile"
+    Profile:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        mobileNumber:
+          type: string
+    MailingAddress:
+      type: object
+      properties:
+        streetLine1:
+          type: string
+        municipality:
+          type: string
+        zipCode:
+          type: string

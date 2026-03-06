@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Sample Party API
+  version: 1.0.0
+paths:
+  /customers:
+    post:
+      operationId: createCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerCreateRequest"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerResponse"
+components:
+  schemas:
+    CustomerCreateRequest:
+      type: object
+      required: [firstName, lastName, email]
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phoneNumber:
+          type: string
+        address:
+          $ref: "#/components/schemas/Address"
+    CustomerResponse:
+      type: object
+      properties:
+        customerId:
+          type: string
+        status:
+          type: string
+        contact:
+          $ref: "#/components/schemas/Contact"
+    Contact:
+      type: object
+      properties:
+        email:
+          type: string
+        phoneNumber:
+          type: string
+    Address:
+      type: object
+      properties:
+        line1:
+          type: string
+        city:
+          type: string
+        postalCode:
+          type: string
