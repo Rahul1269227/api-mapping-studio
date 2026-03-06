@@ -1,5 +1,9 @@
 # API Mapping Studio
 
+![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 Small public-safe Python project for comparing two OpenAPI specs and generating field-level mapping suggestions.
 
 ## Features
@@ -26,6 +30,10 @@ PYTHONPATH=src python -m mapping_workbench.cli \
 ```bash
 PYTHONPATH=src python3 -m pytest -q
 ```
+
+## Demo
+
+This repo is intended as a small portfolio-ready code sample rather than a hosted product. The fastest way to evaluate it is to run the CLI against the included example specs and inspect the generated JSON report.
 
 ## Project Layout
 
